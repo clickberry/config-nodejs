@@ -1,0 +1,11 @@
+{
+  "testVal": "value",
+  "intVal": "10",
+  "protocol": "http",
+  "port": "8080",
+  "path": "/url_path",
+  "host":{
+    "name": "myhost",
+    "port": 3000
+  }
+}
