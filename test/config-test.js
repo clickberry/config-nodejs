@@ -1,4 +1,5 @@
 process.env.CONFIG_DIR = 'test';
+process.env.NODE_ENV = 'development';
 var config = require('..');
 var assert = require('assert');
 

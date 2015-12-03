@@ -5,12 +5,16 @@ var appRoot = require('app-root-path');
 var configDir = process.env.CONFIG_DIR || 'config';
 var configFileDir = path.join(appRoot.path, configDir);
 
-var configName = (process.env.NODE_ENV || "development") + '.json';
+var configName = process.env.NODE_ENV ? process.env.NODE_ENV + '.json' : null;
 
 config.argv()
     .env('_')
     .file('default', {file: path.join(configFileDir, 'default.json')})
-    .file({file: path.join(configFileDir, configName)});
+
+if (configName) {
+    config.file({file: path.join(configFileDir, configName)});
+}
+
 
 if (get('node:env') === 'development') {
     console.warn('ENVIRONMENT set to "development" mode.');
