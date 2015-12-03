@@ -12,7 +12,7 @@ config.argv()
     .file('default', {file: path.join(configFileDir, 'default.json')})
     .file({file: path.join(configFileDir, configName)});
 
-if (get('environment') === 'development') {
+if (get('node:env') === 'development') {
     console.warn('ENVIRONMENT set to "development" mode.');
 }
 

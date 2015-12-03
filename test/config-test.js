@@ -15,7 +15,6 @@ describe('Get from default.json', function () {
 });
 
 describe('GetInt function', function () {
-    console.log(config.getUrl('path'));
     it('should return number', function () {
         assert.equal(typeof config.getInt('intVal'), 'number');
     });
@@ -30,7 +29,6 @@ describe('GetInt function', function () {
 });
 
 describe('GetUrl function', function () {
-    console.log(config.getUrl('path'));
     it('should return url', function () {
         assert.equal(config.getUrl('path'), 'http://myhost:3000/url_path');
     });
