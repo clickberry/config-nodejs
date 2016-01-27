@@ -29,6 +29,18 @@ function getInt(param, defValue) {
     return parseInt(value) || defValue || 0;
 }
 
+function getBool(param, defValue) {
+    defValue = !!defValue;
+    var value = get(param);
+    if (typeof (value) == 'string') {
+        return value ? value.toString().toLowerCase() == 'true' : defValue;
+    } else if (typeof (value) == 'boolean') {
+        return value;
+    }
+
+    return defValue;
+}
+
 function getUrl(param) {
     var url = get('protocol') + '://' + get('host:name');
     var hostName = get('host:port') == 80 ? url : url + ':' + get('host:port');
@@ -38,4 +50,5 @@ function getUrl(param) {
 
 exports.get = get;
 exports.getInt = getInt;
+exports.getBool = getBool;
 exports.getUrl = getUrl;

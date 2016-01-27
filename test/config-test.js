@@ -34,3 +34,45 @@ describe('GetUrl function', function () {
         assert.equal(config.getUrl('path'), 'http://myhost:3000/url_path');
     });
 });
+
+describe('GetBool function', function () {
+    it('should return true', function () {
+        console.log(config.get('true'));
+        console.log(config.get('false'));
+        assert.equal(config.getBool('true'), true);
+    });
+
+    it('should return false', function () {
+        assert.equal(config.getBool('false'), false);
+    });
+
+    it('should return true from string', function () {
+        assert.equal(config.getBool('boolTrue', false), true);
+        assert.equal(config.getBool('boolTrue', true), true);
+    });
+
+    it('should return false from string', function () {
+        assert.equal(config.getBool('boolFalse', true), false);
+        assert.equal(config.getBool('boolFalse', false), false);
+    });
+
+    it('should rreturn default value from null', function () {
+        assert.equal(config.getBool('boolNull', true), true);
+        assert.equal(config.getBool('boolNull', false), false);
+    });
+
+    it('should return default value from empty', function () {
+        assert.equal(config.getBool('boolEmpty', true), true);
+        assert.equal(config.getBool('boolEmpty', false), false);
+    });
+
+    it('should return default value from any string', function () {
+        assert.equal(config.getBool('boolString', true), true);
+        assert.equal(config.getBool('boolString', false), false);
+    });
+
+    it('should return default value if not exists', function () {
+        assert.equal(config.getBool('valNotExist', true), true);
+        assert.equal(config.getBool('valNotExist', false), false);
+    });
+});
