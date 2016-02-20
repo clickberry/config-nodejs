@@ -4,7 +4,7 @@
   "protocol": "http",
   "port": "8080",
   "path": "/url_path",
-  "host":{
+  "host": {
     "name": "myhost",
     "port": 3000
   },
@@ -13,5 +13,9 @@
   "boolTrue": "true",
   "boolFalse": "false",
   "boolEmpty": "",
-  "boolNull": null
+  "boolNull": null,
+  "array": "1,2,3",
+  "numberVal": 0,
+  "boolVal": true,
+  "splitingVal": "a:b:c"
 }

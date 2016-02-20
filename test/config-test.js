@@ -76,3 +76,30 @@ describe('GetBool function', function () {
         assert.equal(config.getBool('valNotExist', false), false);
     });
 });
+
+describe('GetArray function', function () {
+    it('should return array', function () {
+        assert.ok(config.getArray('array') instanceof Array);
+        assert.ok(config.getArray('arrayNotExist') instanceof Array);
+    });
+
+    it('should return empty array', function () {
+        assert.equal(config.getArray('numberVal').length, 0);
+        assert.equal(config.getArray('arrayNotExist').length, 0);
+        assert.equal(config.getArray('boolVal').length, 0);
+    });
+
+    it('should return array with values', function () {
+        var array=config.getArray('array');
+        assert.equal(array[0], '1');
+        assert.equal(array[1], '2');
+        assert.equal(array[2], '3');
+    });
+
+    it('should split values', function () {
+        var array=config.getArray('splitingVal', ':');
+        assert.equal(array[0], 'a');
+        assert.equal(array[1], 'b');
+        assert.equal(array[2], 'c');
+    });
+});

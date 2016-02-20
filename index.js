@@ -48,7 +48,19 @@ function getUrl(param) {
     return hostName + pathUrl;
 }
 
+function getArray(param, splitter) {
+    var str = get(param);
+    var type = typeof(str);
+    if (type !== 'string') {
+        return [];
+    }
+
+    splitter = splitter || ',';
+    return str.split(splitter);
+}
+
 exports.get = get;
 exports.getInt = getInt;
 exports.getBool = getBool;
 exports.getUrl = getUrl;
+exports.getArray = getArray;
